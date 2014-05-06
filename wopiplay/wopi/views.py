@@ -20,3 +20,4 @@ def contents(request):
   f = urllib2.urlopen('https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx') 
   stuff = f.read()
   return HttpResponse(stuff,content_type="application/octet-stream")
+
