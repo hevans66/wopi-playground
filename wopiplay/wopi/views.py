@@ -13,7 +13,7 @@ def info(request):
   r['BaseFileName'] = 'test3.xlsx'
   r['OwnerId'] = 'lovezors'
   r['Size'] = len(stuff)
-  r['SHA256'] = hashlib.sha256(stuff).hexdigest() 
+  r['SHA256'] = hashlib.sha256(stuff).digest() 
   r['Version'] = '1'
   return HttpResponse(json.dumps(r), content_type="application/json")
 
