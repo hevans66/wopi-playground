@@ -3,6 +3,7 @@ from django.http import HttpResponse
 import urllib2
 import hashlib
 import json
+import base64
 
 # Create your views here.
 def info(request):
