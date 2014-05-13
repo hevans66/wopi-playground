@@ -6,8 +6,8 @@ import json
 
 # Create your views here.
 def info(request):
-  #f = urllib2.urlopen('https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx') 
-  f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
+  f = urllib2.urlopen('https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx') 
+  #f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
   stuff = f.read()
   r = {}
   r['BaseFileName'] = 'test3.xlsx'
@@ -18,8 +18,8 @@ def info(request):
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request):
-  #f = urllib2.urlopen('https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx') 
-  f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
+  f = urllib2.urlopen('https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx') 
+  #f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
   stuff = f.read()
   return HttpResponse(stuff,content_type="application/octet-stream")
 

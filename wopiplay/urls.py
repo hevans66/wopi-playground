@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^stuff/wopi/files/test.xlsx$','wopiplay.wopi.views.info'),
-    url(r'^stuff/wopi/files/test.xlsx/contents$','wopiplay.wopi.views.contents'),
+    url(r'^stuff/wopi/files/test.docx$','wopiplay.wopi.views.info'),
+    url(r'^stuff/wopi/files/test.docx/contents$','wopiplay.wopi.views.contents'),
     url(r'^stuff/wopi/files/test2.docx','wopiplay.wopi.views.contents')
 )
