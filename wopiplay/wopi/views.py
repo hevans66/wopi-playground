@@ -11,7 +11,7 @@ def info(request):
   #f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
   stuff = f.read()
   r = {}
-  r['BaseFileName'] = 'test3.xlsx'
+  r['BaseFileName'] = 'test.docx'
   r['OwnerId'] = 'lovezors'
   r['Size'] = len(stuff)
   dig = hashlib.sha256(stuff).digest()
