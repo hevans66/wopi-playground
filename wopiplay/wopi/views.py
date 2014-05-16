@@ -42,7 +42,7 @@ def contents(request,fileid=None):
   elif request.method == 'POST':
     #put the file back on box
     print "Got hit to POST"
-    box_url = 'https://upload.box.com/api/2.0/files/content'
+    url = 'https://upload.box.com/api/2.0/files/content'
     files = {'filename':('1'+fileid,request)}
     print 'filename: ','1'+fileid
     data = { 'folder_id':'1919107407' }
