@@ -7,6 +7,7 @@ import json
 import base64
 import urllib
 import requests
+import datetime
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -43,8 +44,7 @@ def contents(request,fileid=None):
     #put the file back on box
     print "Got hit to POST"
     url = 'https://upload.box.com/api/2.0/files/content'
-    files = {'filename':('1'+fileid,request)}
-    print 'filename: ','1'+fileid
+    files = {'filename':(datetime.datetime.now()+fileid,request)}
     data = { 'folder_id':'1919107407' }
     headers = {'Authorization':"Bearer xFarza2P7fF1y1Pz8fIZ0Z3IJHi564qa"}
     resp = requests.post(url, params=data, files=files, headers=headers)
