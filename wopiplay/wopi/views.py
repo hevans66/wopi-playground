@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import urlparse
 import urllib2
 import hashlib
 import json
@@ -31,5 +32,7 @@ def contents(request,fileid=None):
   return HttpResponse(stuff,content_type="application/octet-stream")
 
 def get_wopi_url(request,fileid=None):
-  url = 'hi'
-  return HttpResponse(url)
+  r = {}
+  wopi_url = 'http://wopi-playground.herokuapp.com/stuff/wopi/files/{}'.format(fileid
+  r['url'] = wopi_url
+  return render(request,'geturl.html',r)
