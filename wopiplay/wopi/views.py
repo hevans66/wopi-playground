@@ -7,6 +7,8 @@ import json
 import base64
 import urllib
 
+from django.views.decorators.csrf import csrf_exempt
+
 def fileid_to_url(fileid):
   if fileid == 'test2.docx':
     return 'https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx'
@@ -29,6 +31,7 @@ def info(request,fileid=None):
   r['SupportsLocks'] = True
   return HttpResponse(json.dumps(r), content_type="application/json")
 
+@csrf_exempt
 def contents(request,fileid=None):
   print 'request to contents'
   if request.method == 'GET':
