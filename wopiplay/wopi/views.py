@@ -46,6 +46,7 @@ def contents(request,fileid=None):
     data = { 'folder_id':'1919107407' }
     headers = {'Authorization':"Bearer azNbv38wYbxpbl3luS9Ucuwycd0AdFRC"}
     resp = requests.post(url, params=data, files=files, headers=headers)
+    print 'got past post'
     print resp
 
 def get_wopi_url(request,fileid=None):
