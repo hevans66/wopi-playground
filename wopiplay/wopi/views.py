@@ -49,6 +49,7 @@ def contents(request,fileid=None):
     resp = requests.post(url, params=data, files=files, headers=headers)
     print 'got past post'
     print resp
+    return HttpResponse('')
 
 def get_wopi_url(request,fileid=None):
   r = {}
