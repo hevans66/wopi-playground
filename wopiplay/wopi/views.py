@@ -30,10 +30,19 @@ def info(request,fileid=None):
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request,fileid=None):
-  f = urllib2.urlopen(fileid_to_url(fileid)) 
-  #f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
-  stuff = f.read()
-  return HttpResponse(stuff,content_type="application/octet-stream")
+  if request.method == 'GET':
+    f = urllib2.urlopen(fileid_to_url(fileid)) 
+    stuff = f.read()
+    return HttpResponse(stuff,content_type="application/octet-stream")
+  elif request.method == 'POST':
+    #put the file back on box
+    print "Got hit to POST"
+    box_url = 'https://upload.box.com/api/2.0/files/content'
+    files = {'filename':(fileid+'1',request.body)}
+    data = { 'folder_id':'1919107407' }
+    headers = {'Authorization':"Bearer azNbv38wYbxpbl3luS9Ucuwycd0AdFRC"}
+    resp = requests.post(url, params=data, files=files, headers=headers)
+    print resp
 
 def get_wopi_url(request,fileid=None):
   r = {}
@@ -42,7 +51,7 @@ def get_wopi_url(request,fileid=None):
   urls = []
   if fileid.endswith('xlsx'):
     urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
-    urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
+    urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?edit=1'+encoded_params) 
   r['get_info_url'] = wopi_url
   r['get_file_url'] = wopi_url+'/contents'
   r['urls'] = urls
