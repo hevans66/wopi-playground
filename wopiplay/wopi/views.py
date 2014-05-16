@@ -26,6 +26,7 @@ def info(request,fileid=None):
   r['Version'] = '1'
   r['SupportsUpdate'] = True
   r['UserCanWrite'] = True
+  r['SupportsLocks'] = True
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request,fileid=None):
