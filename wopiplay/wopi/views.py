@@ -24,6 +24,8 @@ def info(request,fileid=None):
   dig = hashlib.sha256(stuff).digest()
   r['SHA256'] = base64.b64encode(dig).decode()
   r['Version'] = '1'
+  r['SupportsUpdate'] = True
+  r['UserCanWrite'] = True
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request,fileid=None):
@@ -38,6 +40,7 @@ def get_wopi_url(request,fileid=None):
   encoded_params= urllib.urlencode( [('WOPISrc',wopi_url),('access_token','12345')] )
   urls = []
   if fileid.endswith('xlsx'):
+    urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
     urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
   r['urls'] = urls
   return render(request,'geturl.html',r)
