@@ -30,6 +30,7 @@ def info(request,fileid=None):
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request,fileid=None):
+  print 'request to contents'
   if request.method == 'GET':
     f = urllib2.urlopen(fileid_to_url(fileid)) 
     stuff = f.read()
