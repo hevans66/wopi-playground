@@ -42,5 +42,7 @@ def get_wopi_url(request,fileid=None):
   if fileid.endswith('xlsx'):
     urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
     urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
+  r['get_info_url'] = wopi_url
+  r['get_file_url'] = wopi_url+'/contents'
   r['urls'] = urls
   return render(request,'geturl.html',r)

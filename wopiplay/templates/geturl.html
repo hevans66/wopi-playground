@@ -1,8 +1,11 @@
 <html>
 <body>
 
+Info url: {{get_info_url|urlize}}
+Contents url: {{get_file_url|urlize}}
+
 {% for url in urls %}
-  {{url|urlize}}
+  {{url|urlize}} + "<br/>"
 {% endfor %}
 
 </body>
