@@ -46,7 +46,7 @@ def contents(request,fileid=None):
     files = {'filename':('1'+fileid,request)}
     print 'filename: ','1'+fileid
     data = { 'folder_id':'1919107407' }
-    headers = {'Authorization':"Bearer azNbv38wYbxpbl3luS9Ucuwycd0AdFRC"}
+    headers = {'Authorization':"Bearer xFarza2P7fF1y1Pz8fIZ0Z3IJHi564qa"}
     resp = requests.post(url, params=data, files=files, headers=headers)
     print 'got past post'
     print resp
