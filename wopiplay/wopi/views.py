@@ -5,6 +5,7 @@ import urllib2
 import hashlib
 import json
 import base64
+import urllib
 
 def fileid_to_url(fileid):
   if fileid == 'test2.docx':
@@ -33,6 +34,10 @@ def contents(request,fileid=None):
 
 def get_wopi_url(request,fileid=None):
   r = {}
-  wopi_url = 'http://wopi-playground.herokuapp.com/stuff/wopi/files/{}'.format(fileid
-  r['url'] = wopi_url
+  wopi_url = 'http://wopi-playground.herokuapp.com/stuff/wopi/files/{}'.format(fileid)
+  encoded_params= urllib.urlencode( [('WOPISrc',wopi_url),('access_token','12345')] )
+  urls = []
+  if fileid.endswith('xlsx'):
+    urls.append('http://hlabows01.contoso.com/x/_layouts/xlviewerinternal.aspx?'+encoded_params) 
+  r['urls'] = urls
   return render(request,'geturl.html',r)
