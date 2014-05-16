@@ -6,6 +6,7 @@ import hashlib
 import json
 import base64
 import urllib
+import requests
 
 from django.views.decorators.csrf import csrf_exempt
 
