@@ -42,7 +42,8 @@ def contents(request,fileid=None):
     #put the file back on box
     print "Got hit to POST"
     box_url = 'https://upload.box.com/api/2.0/files/content'
-    files = {'filename':(fileid+'1',request.body)}
+    files = {'filename':('1'+fileid,'asdfasfd')}
+    print 'filename: ','1'+fileid
     data = { 'folder_id':'1919107407' }
     headers = {'Authorization':"Bearer azNbv38wYbxpbl3luS9Ucuwycd0AdFRC"}
     resp = requests.post(url, params=data, files=files, headers=headers)
