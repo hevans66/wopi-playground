@@ -25,7 +25,7 @@ def info(request,fileid=None):
   return HttpResponse(json.dumps(r), content_type="application/json")
 
 def contents(request,fileid=None):
-  f = urllib2.urlopen(fileid_to_url(fileid) 
+  f = urllib2.urlopen(fileid_to_url(fileid)) 
   #f = urllib2.urlopen('https://app.box.com/shared/static/z5uvek60a8r0q1q2wpca.xlsx') 
   stuff = f.read()
   return HttpResponse(stuff,content_type="application/octet-stream")
