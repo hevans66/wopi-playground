@@ -6,7 +6,7 @@ import json
 import base64
 
 def fileid_to_url(fileid):
- if fileid == 'test2.docx':
+  if fileid == 'test2.docx':
     return 'https://app.box.com/shared/static/oif4oljhrdk9zrm0f8z8.docx'
   elif fileid == 'test4.xlsx':
     return 'https://app.box.com/shared/static/dcrv1hljglo53fy6nvaj.xlsx'
